@@ -1,0 +1,30 @@
+{
+  "name": "EyeCopy — телесуфлёр для переписывания",
+  "short_name": "EyeCopy",
+  "description": "Переписывание текста от руки с подачей фрагментов по взгляду, стуку или свайпу; затеханный конспект, лекции с доски.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#edeff0",
+  "theme_color": "#1e40c2",
+  "categories": ["education"],
+  "prefer_related_applications": false,
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "screenshots": [
+    { "src": "screenshots/wide-1.png", "sizes": "1280x800", "type": "image/png", "form_factor": "wide",
+      "label": "EyeCopy на ноутбуке: фрагмент текста для переписывания и конспект с формулами" },
+    { "src": "screenshots/narrow-1.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow",
+      "label": "Суфлёр на телефоне: крупный фрагмент текста для переписывания от руки" },
+    { "src": "screenshots/narrow-2.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow",
+      "label": "Конспект на телефоне: определения, теоремы и формулы" }
+  ]
+}

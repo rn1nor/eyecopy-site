@@ -1,0 +1,1 @@
+@mediapipe/tasks-vision 0.10.14: Apache License 2.0, https://www.apache.org/licenses/LICENSE-2.0 (Copyright Google LLC)

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>Политика конфиденциальности EyeCopy</title>
+<meta name="description" content="Что EyeCopy обрабатывает на устройстве, что хранит, куда обращается в сеть и как стереть данные или отозвать доступ к камере и микрофону.">
+<style>
+:root{
+  --bg:#edeff0; --card:#ffffff; --ink:#1b1f24; --muted:#555d68; --line:#d5d9de;
+  --accent:#1e40c2; --accent-ink:#ffffff; --ok-bg:#e7f3ea; --ok-line:#9fcbab;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#111418; --card:#1a1f25; --ink:#e7eaee; --muted:#a3acb8; --line:#2e353d;
+    --accent:#8ea8ff; --accent-ink:#0d1220; --ok-bg:#16261b; --ok-line:#2f5a3a;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  overflow-wrap:break-word}
+.wrap{max-width:760px;margin:0 auto;padding:16px 16px 48px}
+.top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;margin:4px 0 16px}
+.back{display:inline-block;padding:8px 14px;border-radius:10px;background:var(--accent);color:var(--accent-ink);
+  text-decoration:none;font-weight:600}
+.back:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.lang{font-size:14px}
+main{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 14px}
+h1{font-size:1.6rem;line-height:1.25;margin:0 0 6px}
+h2{font-size:1.2rem;line-height:1.3;margin:28px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
+h3{font-size:1.02rem;margin:18px 0 4px}
+p,ul,ol{margin:8px 0}
+ul,ol{padding-left:22px}
+li{margin:4px 0}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:14px;margin:0 0 12px}
+.summary{background:var(--ok-bg);border:1px solid var(--ok-line);border-radius:12px;padding:12px;margin:16px 0}
+.summary ul{margin:6px 0 0;padding-left:20px}
+.toc{font-size:15px}
+.toc ol{columns:1}
+code{font:0.92em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--bg);
+  border:1px solid var(--line);border-radius:6px;padding:0 4px;overflow-wrap:anywhere}
+.muted{color:var(--muted)}
+.en{margin-top:32px}
+footer{margin-top:20px;text-align:center;font-size:14px;color:var(--muted)}
+@media (min-width:640px){ main{padding:28px 32px} .toc ol{columns:2;column-gap:32px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+  <a class="back" href="index.html">← Вернуться в EyeCopy</a>
+  <a class="lang" href="#english" lang="en">English summary</a>
+</div>
+
+<main>
+<h1>Политика конфиденциальности EyeCopy</h1>
+<p class="meta">Действует с 16 октября 2026 года (редакция от 14 октября дополнена разделом о распознавании текста с фото на устройстве). Относится к сайту EyeCopy, приложениям EyeCopy для Android и iOS (версия 0.8 и новее).</p>
+
+<div class="summary" role="note">
+  <b>Коротко</b>
+  <ul>
+    <li>У EyeCopy нет сервера с данными пользователей, аккаунтов, аналитики, рекламы и трекинга.</li>
+    <li>Видео с камеры, звук с микрофона, ваши файлы и записи обрабатываются <b>только на вашем устройстве</b>.</li>
+    <li>Разработчик не получает ваших данных и не передаёт их третьим лицам.</li>
+    <li>Исключения — то, что вы включаете сами: голосовые команды и озвучивание текста могут использовать сервисы браузера или системы (раздел 3).</li>
+  </ul>
+</div>
+
+<nav class="toc" aria-label="Содержание">
+  <ol>
+    <li><a href="#operator">Кто отвечает за приложение</a></li>
+    <li><a href="#principle">Главный принцип</a></li>
+    <li><a href="#data">Какие данные обрабатываются и где</a></li>
+    <li><a href="#not-collected">Что мы не собираем</a></li>
+    <li><a href="#network">Сетевые запросы</a></li>
+    <li><a href="#permissions">Разрешения и как их отозвать</a></li>
+    <li><a href="#demo">Демонстрационные функции</a></li>
+    <li><a href="#children">Дети</a></li>
+    <li><a href="#delete">Хранение и удаление данных</a></li>
+    <li><a href="#law">Закон о персональных данных (152-ФЗ)</a></li>
+    <li><a href="#security">Безопасность</a></li>
+    <li><a href="#changes">Изменения политики</a></li>
+    <li><a href="#contacts">Контакты</a></li>
+  </ol>
+</nav>
+
+<h2 id="operator">1. Кто отвечает за приложение</h2>
+<p>Разработчик и правообладатель EyeCopy: <b>p3stival</b>.</p>
+<p>Связаться с разработчиком: <a href="mailto:market.mape@gmail.com"><b>market.mape@gmail.com</b></a>.</p>
+<p>EyeCopy — телесуфлёр для переписывания текста от руки. Приложение показывает текст фрагментами и переключает их по взгляду (камера), по стуку или щелчку (микрофон), по свайпу, касанию или клавише.</p>
+
+<h2 id="principle">2. Главный принцип</h2>
+<p>Всё, что делает EyeCopy, происходит на вашем устройстве — в браузере или во встроенном веб-движке приложения. Разработчик не держит сервер, на который приложение отправляло бы ваши данные. Поэтому мы физически не можем увидеть ваше видео, звук, файлы, конспекты или профиль.</p>
+
+<h2 id="data">3. Какие данные обрабатываются и где</h2>
+
+<h3>Камера (режим «Камера»)</h3>
+<ul>
+  <li>Камера включается только после нажатия «Включить камеру» и вашего разрешения в системном запросе.</li>
+  <li>Кадры с фронтальной камеры анализирует библиотека MediaPipe Face Landmarker прямо на устройстве. Из положения глаз и головы вычисляются несколько чисел, по которым приложение понимает, смотрите вы на экран или в тетрадь.</li>
+  <li>Видео не записывается, не сохраняется и никуда не отправляется. Кадры, точки лица и данные калибровки живут только в памяти, пока работает режим, и исчезают после выключения камеры или закрытия приложения.</li>
+  <li>Приложение не распознаёт личность и не создаёт биометрических шаблонов для идентификации.</li>
+</ul>
+
+<h3>Микрофон: стук и щелчок (режим «Звук»)</h3>
+<ul>
+  <li>Микрофон включается только после нажатия «Включить стук» и вашего разрешения.</li>
+  <li>Приложение следит лишь за уровнем громкости и ищет резкий всплеск — стук по столу или щелчок пальцами. Звук не записывается, не сохраняется и не отправляется.</li>
+</ul>
+
+<h3>Голосовые команды и голосовые заметки</h3>
+<ul>
+  <li>Работают, только если вы сами нажали «Включить голос» или кнопку голосового ввода заметки. По умолчанию выключены.</li>
+  <li>Для распознавания речи используется встроенный в браузер или систему сервис (Web Speech API). Его выполняет не EyeCopy, а производитель браузера или системы:
+    <ul>
+      <li>в Google Chrome звук передаётся на серверы Google;</li>
+      <li>в других браузерах, где есть распознавание речи, — сервису, который выбрал их производитель (например, в Microsoft Edge — Microsoft);</li>
+      <li>в Safari и в приложении для iPhone и iPad распознавание выполняет Apple — на устройстве или на серверах Apple, это решает система;</li>
+      <li>в приложении для Android голосовые команды и голосовые заметки недоступны: встроенный веб-движок Android не поддерживает распознавание речи, поэтому звук не покидает устройство.</li>
+    </ul>
+  </li>
+  <li>Голосовые команды слушают непрерывно, пока вы не нажмёте «Выключить» или не выберете другой режим: всё это время звук передаётся сервису распознавания. Голосовая заметка слушает одну фразу.</li>
+  <li>Обработку речи в этих сервисах регулируют политики конфиденциальности производителя браузера или системы (Google, Apple, Microsoft и т. п.). Разработчик EyeCopy не получает ни звук, ни распознанный текст. Распознанное слово используется только как команда «дальше» или «назад», текст заметки сохраняется на устройстве.</li>
+  <li>Если вы не хотите передавать звук этим сервисам — не включайте голос. Стук и остальные режимы работают без него.</li>
+</ul>
+
+<h3>Озвучивание фрагмента</h3>
+<p>Настройка «озвучивать фрагмент» по умолчанию выключена. Если её включить, текст фрагмента читает синтезатор речи вашей системы или браузера. Некоторые браузеры (например, Chrome с голосами Google или Edge с онлайн-голосами Microsoft) могут отправлять озвучиваемый текст на серверы своего производителя.</p>
+
+<h3>Файлы и фотографии</h3>
+<ul>
+  <li>Файлы, которые вы открываете в «Материалах» и «Лекции» (PDF, DOCX, TXT), читаются на устройстве. Тип файла проверяется по его содержимому, размер ограничен 20 МБ.</li>
+  <li>Фотографии страниц, сканы (PDF без текстового слоя) и фото доски распознаются на самом устройстве: встроенный в EyeCopy движок Tesseract (библиотека tesseract.js) превращает изображение в текст в фоновом потоке браузера или приложения. Фото никуда не отправляется и нигде не сохраняется; остаётся только извлечённый текст — в памяти, пока открыто приложение, а если вы сохраните его в профиль, то в локальном хранилище браузера (см. ниже). Печатный текст распознаётся хорошо, рукописный текст и доска — пока неточно, о чём приложение предупреждает.</li>
+  <li>Движок распознавания и языковые данные для русского и английского (около 8 МБ) на сайте загружаются с самого сайта при первом распознавании (или заранее, когда вы открываете «Материалы» с хорошей сетью, не на мобильном интернете) и сохраняются в кэше браузера для работы без сети; если своя копия почему-то не загрузилась — с публичной сети доставки (см. раздел 5). В приложениях они встроены в пакет. Это общедоступные файлы, в запросах за ними нет ваших данных.</li>
+  <li>Фото тетради («Проверка тетради») показывается только как превью: распознавание рукописного текста в разработке, результат проверки — пример.</li>
+  <li>Содержимое файлов держится в памяти, пока открыто приложение, и не отправляется.</li>
+</ul>
+
+<h3>Данные, которые приложение хранит на устройстве</h3>
+<p>Чтобы вы могли продолжить с того же места, EyeCopy сохраняет в локальном хранилище браузера или приложения (localStorage) на вашем устройстве:</p>
+<ul>
+  <li>позицию в тексте и выбранный размер фрагмента (сам текст не сохраняется — только его контрольная сумма);</li>
+  <li>пометки «не понял» и заметки на полях (привязаны к контрольной сумме текста);</li>
+  <li>профиль, если вы его создали: имя, вуз, группу, сохранённые конспекты, темы и добавленные вами ссылки;</li>
+  <li>статистику — число переписанных слов по дням;</li>
+  <li>настройки: размер шрифта, контраст, озвучивание, паузы для глаз, последний выбранный режим (камера, звук, вручную) и т. п.;</li>
+  <li>служебные отметки интерфейса — например, что вы закрыли подсказку об установке или уже посмотрели обучение «Как это работает», а также что камере на этом устройстве лучше работать без видеокарты (если видеокарта не справилась).</li>
+</ul>
+<p>В приложениях для Android и iOS политика конфиденциальности открывается в том же окне. Чтобы после возврата продолжить с того же места, открытый текст и место в нём на это время кладутся во временное хранилище окна (sessionStorage) и удаляются, как только вы вернётесь; при закрытии приложения система стирает их сама.</p>
+<p>Кроме того, на сайте браузер кэширует файлы самого EyeCopy и его библиотеки (Cache Storage, сервис-воркер), чтобы сайт работал без интернета. В кэше нет ваших данных. Приложениям для Android и iOS этот кэш не нужен: все файлы встроены в приложение.</p>
+<p>Эти данные не покидают устройство. Если в системе включено резервное копирование (iCloud, резервная копия Android в аккаунте Google), система может включить данные приложения в вашу личную резервную копию. Доступа к ней у разработчика нет.</p>
+
+<h3>Другое</h3>
+<ul>
+  <li>Буфер обмена используется только когда вы нажимаете «скопировать» (например, карточки).</li>
+  <li>Файл <code>.tex</code> с конспектом создаётся на устройстве и сохраняется туда, куда вы укажете.</li>
+  <li>Вибрация при смене фрагмента и запрет на отключение экрана во время переписывания не связаны с вашими данными.</li>
+</ul>
+
+<h2 id="not-collected">4. Что мы не собираем</h2>
+<ul>
+  <li>Нет аккаунтов и регистрации на сервере. Кнопка «Зарегистрироваться» в разделе «Профиль» создаёт только локальный профиль на этом устройстве.</li>
+  <li>Нет аналитики, счётчиков, рекламы, рекламных идентификаторов и трекинга между приложениями и сайтами.</li>
+  <li>Нет cookie: приложение их не использует.</li>
+  <li>Нет геолокации, контактов, фотогалереи (кроме файлов, которые вы выбрали сами), истории браузера.</li>
+  <li>Нет продажи и передачи данных третьим лицам — передавать нечего.</li>
+</ul>
+
+<h2 id="network">5. Сетевые запросы</h2>
+<p>EyeCopy обращается в сеть только за собственными файлами:</p>
+<ul>
+  <li><b>Сайт.</b> Сайт размещён на хостинге GitHub Pages (GitHub, Inc.). Как любой веб-сервер, хостинг получает IP-адрес и технические данные запроса (браузер, время). По словам GitHub, IP-адреса посетителей GitHub Pages записываются и хранятся в целях безопасности. Разработчик EyeCopy к этим журналам доступа не имеет.</li>
+  <li><b>Приложения для Android и iOS.</b> Все файлы и библиотеки встроены в приложение. Для обычной работы интернет не нужен.</li>
+  <li><b>Запасные источники библиотек.</b> Библиотеки (KaTeX, pdf.js, JSZip, MediaPipe, tesseract.js), модель распознавания лица, языковые данные Tesseract (русский и английский) и шрифты поставляются вместе с EyeCopy. Только если встроенная библиотека, модель или языковые данные почему-то не загрузились, приложение скачивает их копию с публичных сетей доставки: jsDelivr (cdn.jsdelivr.net), cdnjs (cdnjs.cloudflare.com — только KaTeX и JSZip), unpkg (unpkg.com), модель MediaPipe — с Google Cloud Storage (storage.googleapis.com), языковые данные Tesseract — с jsDelivr (копия открытого репозитория tesseract-ocr/tessdata_fast). У шрифтов запасного источника нет: если они не загрузились, текст показывается системным шрифтом. Эти сервисы, как любой сайт, видят IP-адрес и данные запроса. Ваших файлов, фотографий, текста, видео и звука в таких запросах нет.</li>
+  <li><b>Файл-демо</b> <code>EyeCopy-demo.html</code> (открывается без установки, прямо из файла) библиотек с собой не несёт: он сразу берёт их с тех же сетей доставки, а шрифты — с Google Fonts (fonts.googleapis.com, fonts.gstatic.com).</li>
+  <li><b>Внешние ссылки.</b> Ссылки на открытые лекции (например, teach-in.ru, openedu.ru) и ссылки, которые вы добавили сами, открываются в браузере только по вашему нажатию. Адрес страницы EyeCopy при переходе не передаётся (политика no-referrer). Дальше действуют правила этих сайтов.</li>
+</ul>
+
+<h2 id="permissions">6. Разрешения и как их отозвать</h2>
+<ul>
+  <li><b>Камера</b> — для режима «Камера» (переключение по взгляду). Также система может предложить камеру, когда вы фотографируете страницу («Сфотографировать страницу») или выбираете фото доски или тетради; такой снимок обрабатывается на устройстве как обычный файл.</li>
+  <li><b>Микрофон</b> — для режима «Звук» (стук, щелчок) и, по вашему выбору, голосовых команд и заметок.</li>
+  <li><b>Распознавание речи</b> (только iOS) — для голосовых команд.</li>
+  <li><b>Интернет</b> (Android) — выдаётся автоматически; нужен только для запасных источников библиотек (раздел 5).</li>
+</ul>
+<p>Все разрешения необязательны. Без камеры и микрофона суфлёр работает от касаний, свайпов и клавиш. Отозвать разрешение можно в любой момент:</p>
+<ul>
+  <li><b>Android:</b> Настройки → Приложения → EyeCopy → Разрешения.</li>
+  <li><b>iPhone и iPad:</b> Настройки → Конфиденциальность и безопасность → Камера / Микрофон / Распознавание речи — или Настройки → EyeCopy.</li>
+  <li><b>Браузер:</b> в Chrome — значок слева от адреса сайта → разрешения; в Safari на iPhone — Настройки → (Приложения →) Safari → Камера / Микрофон.</li>
+</ul>
+
+<h2 id="demo">7. Демонстрационные функции</h2>
+<p>Часть функций в этой версии — макеты, которые показывают будущие возможности. Они работают локально и ничего никуда не отправляют:</p>
+<ul>
+  <li>профиль, группы, коды приглашения и участники групп — хранятся только на устройстве, участники групп — примеры;</li>
+  <li>трансляция лекции — заранее подготовленный сценарий или ваш файл;</li>
+  <li>«Объяснить», каталог открытых лекций и таймкоды — примеры, данные выдуманы и так помечены;</li>
+  <li>конспект ИИ — эвристика в браузере, без языковой модели и сервера;</li>
+  <li>проверка тетради — показ примера результата (распознавание рукописного текста в разработке; печатный текст с фото и сканов распознаётся по-настоящему, на устройстве — см. раздел 4);</li>
+  <li>«синхронизация» и офлайн-очередь — имитация, данные никуда не уходят.</li>
+</ul>
+<p>Если в будущем появится сервер (аккаунты, синхронизация, ИИ-конспекты), мы заранее обновим эту политику и попросим согласие там, где этого требует закон.</p>
+
+<h2 id="children">8. Дети</h2>
+<p>EyeCopy создан для школьников старших классов и студентов. Приложение не предназначено специально для детей младше 13 лет. Мы не собираем данные ни о ком, включая детей, — всё остаётся на устройстве. Если ребёнок пользуется приложением, родители могут в любой момент удалить его данные способами из раздела 9.</p>
+
+<h2 id="delete">9. Хранение и удаление данных</h2>
+<p>Данные хранятся на устройстве, пока вы их не удалите. Удалить можно так:</p>
+<ul>
+  <li>в приложении: «Профиль» → «Настройки» → «Стереть локальные данные» — стирает все данные EyeCopy в хранилище этого браузера или приложения (localStorage и sessionStorage): позицию в тексте, пометки «не понял» и заметки на полях, статистику, настройки, служебные отметки и профиль вместе с сохранёнными в нём конспектами. Кэш библиотек — общедоступные файлы без ваших данных — остаётся, чтобы не скачивать их заново;</li>
+  <li>по одной: пометки «не понял» и заметки на полях снимаются в самом конспекте; кнопка «Выйти» в профиле удаляет профиль;</li>
+  <li>чтобы гарантированно удалить всё сразу: удалите приложение (Android, iOS) или очистите данные сайта в браузере (в Chrome — значок слева от адреса → настройки сайта → удалить данные; в Safari на iPhone — Настройки → (Приложения →) Safari → Дополнения → Данные сайтов).</li>
+</ul>
+<p>У разработчика копий ваших данных нет, поэтому удалять «на сервере» нечего.</p>
+
+<h2 id="law">10. Закон о персональных данных (152-ФЗ)</h2>
+<p>EyeCopy не передаёт разработчику персональные данные пользователей: всё, что вы вводите (например, имя в локальном профиле), хранится и обрабатывается только на вашем устройстве и под вашим контролем. Разработчик не собирает, не записывает, не систематизирует и не хранит эти данные в смысле Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+<p>Если в EyeCopy появятся функции, при которых данные передаются разработчику (аккаунты, синхронизация), они будут обрабатываться в соответствии с 152-ФЗ, с хранением данных граждан России на территории России, и эта политика будет обновлена до запуска таких функций.</p>
+
+<h2 id="security">11. Безопасность</h2>
+<ul>
+  <li>Сайт открывается только по HTTPS; камера и микрофон в браузере доступны только в защищённом соединении.</li>
+  <li>Страница приложения ограничена политикой безопасности содержимого (CSP): она может загружать код только из своих файлов и перечисленных в разделе 5 сетей доставки.</li>
+  <li>Тексты из ваших файлов показываются как текст, а не как код страницы.</li>
+</ul>
+
+<h2 id="changes">12. Изменения политики</h2>
+<p>Мы можем обновлять политику, например, когда появляются новые функции. Новая версия публикуется на этой странице с новой датой вступления в силу. Если изменения касаются передачи данных с устройства, мы сообщим о них в приложении до того, как такие функции заработают.</p>
+
+<h2 id="contacts">13. Контакты</h2>
+<p>Вопросы о конфиденциальности и запросы: <a href="mailto:market.mape@gmail.com"><b>market.mape@gmail.com</b></a>. Мы стараемся отвечать в течение 10 рабочих дней.</p>
+
+<section class="en" id="english" lang="en">
+<h2>English summary</h2>
+<p class="muted">This summary is provided for convenience, for example for app store reviewers. The Russian text above is the authoritative version.</p>
+<ul>
+  <li><b>Developer:</b> p3stival. <b>Contact:</b> <a href="mailto:market.mape@gmail.com">market.mape@gmail.com</a>. <b>Effective:</b> 16 October 2026 (the 14 October edition extended with on-device photo text recognition).</li>
+  <li><b>No data collection.</b> EyeCopy has no user accounts, no backend that stores user data, no analytics, no ads and no tracking. The developer receives no personal data.</li>
+  <li><b>Camera:</b> used only after the user turns on camera mode. Frames are processed on the device by MediaPipe Face Landmarker to detect whether the user looks at the screen or at the notebook. Video is never recorded, stored or transmitted; no biometric identification is performed.</li>
+  <li><b>Microphone:</b> knock/click detection analyses only the sound level on the device; audio is never recorded or transmitted.</li>
+  <li><b>Voice commands (optional, off by default):</b> use the platform Web Speech API. In Chrome, audio is processed by Google; in other browsers, by the browser vendor (e.g. Microsoft in Edge); in Safari and the iOS app, by Apple. Voice commands listen continuously until turned off. Voice input is not available in the Android app. The developer never receives audio or transcripts.</li>
+  <li><b>Files</b> (PDF, DOCX, TXT, photos) are parsed on the device and never uploaded. Text in photos of pages and in scanned PDFs is recognised on the device by the bundled Tesseract engine (tesseract.js); photos never leave the device and are not stored — only the extracted text is kept in memory (or in local storage if you save it to the local profile). On the website the engine and the Russian/English language data (about 8 MB) are downloaded from the site itself the first time (or from a public CDN as a fallback) and cached for offline use; the apps bundle them. Printed text works well; handwriting and blackboards are still inaccurate, and the app says so. Notebook checking (handwriting) is a demo in this version.</li>
+  <li><b>Local storage:</b> reading position, “don’t understand” marks, margin notes, an optional local profile (name, university, group, saved notes), daily word statistics, settings (including the last chosen mode) and UI flags (e.g. the install tip or the tutorial was dismissed, the camera should use the CPU) are kept in the device’s local storage only. In the apps, the open text is kept in session storage only while the privacy policy is open, to restore it on return. The website also caches the app’s own files for offline use.</li>
+  <li><b>Network:</b> the website is hosted on GitHub Pages, which logs visitor IP addresses for security. The apps bundle all files. Public CDNs (jsDelivr, cdnjs, unpkg; Google Cloud Storage for the MediaPipe model) are contacted only as a fallback if a bundled library or model fails to load; they see the IP address like any website. Fonts have no fallback source. The stand-alone demo file EyeCopy-demo.html loads its libraries from these CDNs and its fonts from Google Fonts. External links open in the browser only when tapped.</li>
+  <li><b>Demo features</b> (groups, lecture broadcast, “Explain”, AI summary, notebook check, sync) are local mock-ups with sample data and no server.</li>
+  <li><b>Children:</b> the app is not specifically directed at children under 13 and collects no data from anyone.</li>
+  <li><b>Deletion:</b> Profile → Settings → “Стереть локальные данные” (Erase local data) erases all EyeCopy data in local and session storage, including marks and margin notes; or uninstall the app / clear site data.</li>
+  <li><b>Permissions</b> (camera, microphone, speech recognition) are optional and can be revoked in system settings at any time.</li>
+</ul>
+</section>
+</main>
+
+<footer>
+  <p><a href="index.html">← Вернуться в EyeCopy</a></p>
+  <p>EyeCopy · политика конфиденциальности · редакция от 16 октября 2026</p>
+</footer>
+</div>
+</body>
+</html>
