@@ -1,0 +1,14 @@
+EyeCopy © 2026 p3stival. Все права защищены.
+
+Файлы этого сайта и приложения EyeCopy (index.html, sw.js, privacy.html, манифест, иконки, картинки) предназначены только
+для использования приложения EyeCopy его посетителями. Исходный код не открыт. Копирование, изменение, распространение
+и использование кода, разметки, текстов и изображений в других продуктах без письменного разрешения правообладателя
+запрещены. Связь: market.mape@gmail.com
+
+EyeCopy © 2026 p3stival. All rights reserved.
+The files of this site and of the EyeCopy app are provided solely for using the EyeCopy application. The source code is not
+open source. Copying, modifying, redistributing or reusing the code, markup, texts or images in other products without the
+copyright holder's written permission is prohibited. Contact: market.mape@gmail.com
+
+Сторонние библиотеки в папке vendor/ (KaTeX, pdf.js, JSZip, MediaPipe, Tesseract.js, шрифты) распространяются под своими
+лицензиями, файлы которых лежат рядом с ними. / Third-party libraries in vendor/ keep their own licenses, shipped alongside.
