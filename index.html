@@ -97,12 +97,17 @@ a{color:var(--ink)}
 .brand:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 .brand .brand-name{display:block;margin:0;font-size:var(--fs-2xl);font-weight:800;letter-spacing:-.02em;line-height:1.1}
 .brand span{font-size:var(--fs-xs);color:var(--muted)}
-/* белая обводка и белый «белок» (основатель 2026-11-04, ночь: «чёрная штука на чёрном пропадает»): цвета одни в обеих темах —
-   чёрный знак, внутри белое, снаружи тонкая белая обводка; читается на белом, тёмном и над видео. Исходник —
+/* белая обводка и белый «белок» (основатель 2026-11-04, ночь: «чёрная штука на чёрном пропадает»): светлая тема и видоискатель —
+   чёрный знак, внутри белое, снаружи тонкая белая обводка; читается на белом и над видео. Тёмная тема — белый знак, как раньше. Исходник —
    design/logo/37-2026-10-27/EyeCopy-logo-37/B-pupil-left/svg/eyecopy-37b-outlined.svg. Иконки и фавикон — без обводки */
 .logo{overflow:visible}
 .logo .logo-in{fill:#fff}
 .logo .logo-mark{fill:#0d0d0c;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round;paint-order:stroke;vector-effect:non-scaling-stroke}
+/* тёмная тема — прежний белый знак (цветом текста, глаз — прорезь), основатель 2026-11-04, ночь: «в тёмной прежние, белые везде»;
+   над видоискателем (html[data-vf], видео не подчиняется теме) — с обводкой в обеих темах */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-vf]) .logo .logo-in{fill:none} :root:not([data-theme="light"]):not([data-vf]) .logo .logo-mark{fill:currentColor;stroke:none}}
+:root[data-theme="dark"]:not([data-vf]) .logo .logo-in{fill:none}
+:root[data-theme="dark"]:not([data-vf]) .logo .logo-mark{fill:currentColor;stroke:none}
 @media (forced-colors:active){.logo .logo-in{fill:none} .logo .logo-mark{fill:CanvasText;stroke:none}}
 .logo{height:36px;width:23.4px;flex:none;color:var(--fg)}   /* знак 37B: один path в цвет текста темы (чёрный на светлой, белый на тёмной), пропорции 52:80 */
 /* ---- ивент «Хеллоуин» (p3 HW): html[data-event=halloween-cobweb|ghost|slime]. Рисунки — mobile/www/events/halloween/
@@ -2600,7 +2605,7 @@ html[data-vf] .src-act.src-cam{box-shadow:0 10px 30px -8px rgba(0,0,0,.6)}
     <!-- подвал — один аккуратный блок строк одной высоты: версия (жирно), политика, канал, «Обратная связь» — обычной ссылкой,
          но переливается радугой, чтобы её замечали (просьба основателя 2026-10-21); большая кнопка — в «Настройках» и «Профиле» -->
     <div class="ver foot-meta">
-      <b class="fm-ver">EyeCopy <span id="appVer">0.9.24</span></b>
+      <b class="fm-ver">EyeCopy <span id="appVer">0.9.25</span></b>
       <a href="privacy.html" target="_blank" rel="noopener">Политика конфиденциальности</a>
       <span id="tgFoot" hidden><a href="https://t.me/eye_copy" id="tgLink" target="_blank" rel="noopener">Канал в Telegram</a></span>
       <span class="fm-fb"><a href="#" id="fbLink" class="fb-text">Обратная связь</a> <span class="small muted" id="fbState"></span></span>
@@ -2677,7 +2682,7 @@ html[data-vf] .src-act.src-cam{box-shadow:0 10px 30px -8px rgba(0,0,0,.6)}
       <button type="button" data-more="full">Полная версия <span>все разделы, режимы и подсказки</span></button>
       <a href="privacy.html" target="_blank" rel="noopener">Политика конфиденциальности</a>
     </nav>
-    <div class="more-foot"><span class="small muted">EyeCopy <span>0.9.24</span></span><button class="btn ghost small" type="button" id="moreX">Закрыть</button></div>
+    <div class="more-foot"><span class="small muted">EyeCopy <span>0.9.25</span></span><button class="btn ghost small" type="button" id="moreX">Закрыть</button></div>
   </div>
 </div>
 <div class="modal" id="fbDlg" role="dialog" aria-modal="true" aria-labelledby="fbDlgT" aria-describedby="fbDlgD" hidden>
