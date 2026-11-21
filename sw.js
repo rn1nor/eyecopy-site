@@ -21,12 +21,12 @@
    Навигация — сначала сеть, но не дольше 3,5 с: на «висящей» мобильной сети открывается index.html из кэша.
    Остальное (свой сайт и CDN) — сначала кэш, кладётся при первом использовании. В кэш попадают только полные ответы 200. */
 'use strict';
-var APP='eyecopy-app-192f72e84e';
+var APP='eyecopy-app-cceeca4b18';
 var LIB_LEGACY='eyecopy-lib-6c5b28ed17';
 var LIB_PARTS={"fonts":"e26e1527f2","jszip":"d7b9cad3a0","katex":"d302b03b01","mediapipe":"b3488eb8cf","pdfjs":"261fd465ca","tesseract":"600e3a55fb"};
 var LIB_CDN='eyecopy-lib-cdn-15bd0a292f';
 var LIB_BIG={"vendor/mediapipe/face_landmarker.task":"64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff","vendor/mediapipe/wasm/vision_wasm_internal.wasm":"f82a8e6c05e08a44cc9f9e7ec5f845935bcbb1b1500ebe8c2f4812fb4e2917dc","vendor/mediapipe/wasm/vision_wasm_nosimd_internal.wasm":"38b61feab2fd7934e05cbe9f68baa308978a5e3b7f85c1913bb8ae89b8ef8b97","vendor/pdfjs/pdf.min.js":"f401927e692efc7735e0cd528c490d0dd31b7f0972c122b7040df805be45cce4","vendor/pdfjs/pdf.worker.min.js":"a33cfe728c584fdba4fcc1fd54bcdc2f9f2f13889ddbb5b2bd1d0f8cbe49b84e","vendor/tesseract/eng.traineddata.gz":"384e37bf0f5ddcc4a1e24802322a837e0b5692e18150e6078ff1d4379b191f98","vendor/tesseract/rus.traineddata.gz":"6e81ea1cde38d325cf3686170802b685c938502561b5a2033ff691432a2a7c9b","vendor/tesseract/tesseract-core-lstm.wasm.js":"eef5f8b2f8e20e150680b20adaec4a60babafee3adbe8a94583c81fee46e8680","vendor/tesseract/tesseract-core-relaxedsimd-lstm.wasm.js":"861a536cf9ef8e63cb644d57bab39c388f37f7d6b6f60024b741c5f6b39a59b3","vendor/tesseract/tesseract-core-simd-lstm.wasm.js":"c58b46a4c796c0b8afccf77591d5b875b6896b45d402bbce8caa6f5362447b38"};   /* тяжёлые файлы vendor/ → sha256 их содержимого (build.py): переезд из старых кэшей только при совпадении */
-var VER='0.9.44';
+var VER='0.9.45';
 var LIB_PRECACHE=["vendor/fonts/fonts.css","vendor/fonts/golos-text-cyrillic-400-normal.woff2","vendor/fonts/golos-text-cyrillic-500-normal.woff2","vendor/fonts/golos-text-cyrillic-600-normal.woff2","vendor/fonts/golos-text-cyrillic-700-normal.woff2","vendor/fonts/golos-text-cyrillic-800-normal.woff2","vendor/fonts/golos-text-latin-400-normal.woff2","vendor/fonts/golos-text-latin-500-normal.woff2","vendor/fonts/golos-text-latin-600-normal.woff2","vendor/fonts/golos-text-latin-700-normal.woff2","vendor/fonts/golos-text-latin-800-normal.woff2","vendor/fonts/jetbrains-mono-cyrillic-400-normal.woff2","vendor/fonts/jetbrains-mono-cyrillic-500-normal.woff2","vendor/fonts/jetbrains-mono-latin-400-normal.woff2","vendor/fonts/jetbrains-mono-latin-500-normal.woff2","vendor/fonts/stix-two-text-cyrillic-400-italic.woff2","vendor/fonts/stix-two-text-cyrillic-400-normal.woff2","vendor/fonts/stix-two-text-cyrillic-700-normal.woff2","vendor/fonts/stix-two-text-greek-400-italic.woff2","vendor/fonts/stix-two-text-greek-400-normal.woff2","vendor/fonts/stix-two-text-greek-700-normal.woff2","vendor/fonts/stix-two-text-latin-400-italic.woff2","vendor/fonts/stix-two-text-latin-400-normal.woff2","vendor/fonts/stix-two-text-latin-700-normal.woff2","vendor/katex/fonts/KaTeX_AMS-Regular.woff2","vendor/katex/fonts/KaTeX_Caligraphic-Bold.woff2","vendor/katex/fonts/KaTeX_Caligraphic-Regular.woff2","vendor/katex/fonts/KaTeX_Fraktur-Bold.woff2","vendor/katex/fonts/KaTeX_Fraktur-Regular.woff2","vendor/katex/fonts/KaTeX_Main-Bold.woff2","vendor/katex/fonts/KaTeX_Main-BoldItalic.woff2","vendor/katex/fonts/KaTeX_Main-Italic.woff2","vendor/katex/fonts/KaTeX_Main-Regular.woff2","vendor/katex/fonts/KaTeX_Math-BoldItalic.woff2","vendor/katex/fonts/KaTeX_Math-Italic.woff2","vendor/katex/fonts/KaTeX_SansSerif-Bold.woff2","vendor/katex/fonts/KaTeX_SansSerif-Italic.woff2","vendor/katex/fonts/KaTeX_SansSerif-Regular.woff2","vendor/katex/fonts/KaTeX_Script-Regular.woff2","vendor/katex/fonts/KaTeX_Size1-Regular.woff2","vendor/katex/fonts/KaTeX_Size2-Regular.woff2","vendor/katex/fonts/KaTeX_Size3-Regular.woff2","vendor/katex/fonts/KaTeX_Size4-Regular.woff2","vendor/katex/fonts/KaTeX_Typewriter-Regular.woff2","vendor/katex/katex.min.css","vendor/katex/katex.min.js"];
 /* './' не кэшируем отдельно: навигация на корень без сети и так получает index.html */
 var SHELL_OPTIONAL=['./manifest.webmanifest','./privacy.html','./icons/icon.svg','./icons/favicon.svg','./icons/icon-192.png','./icons/icon-512.png'];
@@ -120,6 +120,9 @@ self.addEventListener('message',function(e){
   }
 });
 
+/* версия сайта в странице (подвал, #appVer) — чтобы не положить в кэш страницу старее лежащей */
+function verOf(html){ var m=/id="appVer"[^>]*>\s*([0-9]+(?:\.[0-9]+)*)/.exec(String(html||'')); return m? m[1] : ''; }
+function verCmp(a,b){ if(!a||!b) return 0; var x=a.split('.'), y=b.split('.'); for(var i=0;i<Math.max(x.length,y.length);i++){ var d=(+x[i]||0)-(+y[i]||0); if(d) return d<0? -1 : 1; } return 0; }
 function offlinePage(req){
   return caches.match(req,{ignoreSearch:true}).then(function(hit){ return hit||caches.match(INDEX); });
 }
@@ -132,8 +135,22 @@ self.addEventListener('fetch',function(e){
   if(req.mode==='navigate'){
     /* сначала сеть; если она молчит дольше NAV_TIMEOUT или ошибается — страница из кэша (index.html, privacy.html),
        иначе index.html. Если кэша нет — ждём сеть до конца. */
+    var net=fetch(req);
+    /* свежая страница из сети — в кэш, даже если показали сохранённую (основатель 21.11: «у многих вместо нового сайта открывается
+       старый, иногда уже после нового»): раньше в кэше лежала версия установки воркера, и на медленной сети человек, уже видевший
+       новую, снова получал прежнюю. Копия снимается сразу, до того как страница прочтёт ответ */
+    e.waitUntil(net.then(function(r){
+      if(!r||!r.ok||r.type!=='basic'||!/text\/html/.test(r.headers.get('content-type')||'')) return;
+      var copy=r.clone(), u=new URL(req.url); u.search=''; u.hash='';
+      var key=u.href===SCOPE? INDEX : u.href;   /* главная — только корень сайта, не любая папка (проверяющий 21.11) */
+      /* ответ мог прийти из HTTP-кэша браузера (max-age, «Назад», восстановленная вкладка) — более старой версией сайта не затираем */
+      return Promise.all([copy.clone().text(),caches.match(key,{cacheName:APP}).then(function(o){ return o? o.text() : ''; })]).then(function(v){
+        if(verCmp(verOf(v[0]),verOf(v[1]))<0) return;
+        return caches.open(APP).then(function(c){ return c.put(key,copy); });
+      });
+    }).catch(function(){}));
     e.respondWith(new Promise(function(resolve){
-      var settled=false, net=fetch(req);
+      var settled=false;
       var done=function(r){ if(!settled&&r){ settled=true; resolve(r); } return !!r; };
       var timer=setTimeout(function(){ offlinePage(req).then(done).catch(function(){}); },NAV_TIMEOUT);
       net.then(function(r){ clearTimeout(timer); done(r); },function(){
